@@ -227,14 +227,14 @@
       <p class="card-pub">Mid-Day, Bombay &ndash; June 2025</p>
       <h3 class="card-title">Fans from the Indian Community in Leicester Chime in with Anticipation</h3>
       <p class="card-desc">Feature exploring how sport functions as a site of cultural identity, memory, and community for the Indian diaspora in Leicester during the India–England Test series. Published in one of India's largest English-language dailies.</p>
-      <span class="card-tag">International byline</span>
+      <span class="card-tag"><a href="#" class="byline-link" onclick="openModal('midday-modal'); return false;">View here</a> byline</span>
     </div>
 
     <div class="article-card">
       <p class="card-pub">The Times of India, Dehradun &ndash; July 2024</p>
       <h3 class="card-title">'Roaring Mission' Event at WII Campus on Int'l Tiger Day</h3>
       <p class="card-desc">Event report on a conservation awareness event at the Wildlife Institute of India, featuring expert commentary, student engagement, and panel discussions. Covers quizzes, panel discussions with scientists and tourism officials, and student participation from 11 schools.</p>
-      <span class="card-tag">National byline</span>
+      <span class="card-tag"><a href="#" class="byline-link" onclick="openModal('toi-modal'); return false;">View here</a></span>
     </div>
 
   </div>
@@ -394,5 +394,112 @@
   <span>Leicester, UK</span>
 </footer>
 
+ <!-- Article Image Modals -->
+<div id="midday-modal" class="article-modal" onclick="closeModal('midday-modal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('midday-modal')">&times;</button>
+    <img src="midday-article.png" alt="Mid-Day article – Fans from the Indian Community in Leicester" />
+    <p class="modal-caption">Mid-Day, Bombay – June 2025</p>
+  </div>
+</div>
+
+<div id="toi-modal" class="article-modal" onclick="closeModal('toi-modal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('toi-modal')">&times;</button>
+    <img src="toi-article.png" alt="Times of India article – Roaring Mission at WII Campus" />
+    <p class="modal-caption">The Times of India, Dehradun – July 2024</p>
+  </div>
+</div>
+
+<!-- Modal Styles -->
+<style>
+  .byline-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+  .byline-link:hover { opacity: 1; }
+
+  .article-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .article-modal.open {
+    display: flex;
+  }
+  .modal-box {
+    position: relative;
+    max-width: 780px;
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .modal-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .modal-caption {
+    padding: 0.75rem 1rem;
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+  }
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-close:hover { background: rgba(0,0,0,0.85); }
+</style>
+
+<!-- Modal Script -->
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.article-modal.open').forEach(function(m) {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+</script>
+ 
 </body>
 </html>
