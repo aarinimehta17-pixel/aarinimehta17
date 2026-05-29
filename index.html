@@ -247,13 +247,14 @@
   <p class="section-intro">Owned messaging strategy, written communications, and campaign execution across university and cultural event contexts &ndash; always audience-first.</p>
   <div class="section-rule"></div>
 
-  <div class="comms-grid">
+ <div class="comms-grid">
 
     <div class="comms-card">
       <p class="comms-org">University of Leicester &ndash; Internal Comms Internship · July 2025</p>
       <h3 class="comms-title">What's Where on Campus?</h3>
       <p class="comms-desc">A student information and guidance article published on the University's intranet. Written to support new and returning students with clear, accessible information on campus facilities, services, and wellbeing support &ndash; tailored for a large, diverse student audience.</p>
       <p class="comms-outcome">Published on the University of Leicester students' intranet</p>
+      <a href="#" class="comms-view-link" onclick="openModal('whatswhere-modal'); return false;">View here</a>
     </div>
 
     <div class="comms-card">
@@ -261,9 +262,10 @@
       <h3 class="comms-title">Santander Student Tech Prize Draw</h3>
       <p class="comms-desc">Promotional article written for the University's intranet to drive student engagement with a Santander Open Academy prize draw. Structured to highlight audience benefits clearly, using an engaging, accessible tone suited to the student readership.</p>
       <p class="comms-outcome">Published on the University of Leicester students' intranet</p>
+      <a href="#" class="comms-view-link" onclick="openModal('santander-modal'); return false;">View here</a>
     </div>
 
-
+  </div>
 
   </div>
 </section>
@@ -394,6 +396,23 @@
   <span>Leicester, UK</span>
 </footer>
 
+<!-- PR & Comms Modals -->
+<div id="santander-modal" class="article-modal" onclick="closeModal('santander-modal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('santander-modal')">&times;</button>
+    <img src="santander-article.png" alt="Santander Student Tech Prize Draw" />
+    <p class="modal-caption">University of Leicester – Internal Comms Internship · June 2025</p>
+  </div>
+</div>
+
+<div id="whatswhere-modal" class="article-modal" onclick="closeModal('whatswhere-modal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('whatswhere-modal')">&times;</button>
+    <img src="whatswhere-article.png" alt="What's Where on Campus" />
+    <p class="modal-caption">University of Leicester – Internal Comms Internship · July 2025</p>
+  </div>
+</div>
+     
  <!-- Article Image Modals -->
 <div id="midday-modal" class="article-modal" onclick="closeModal('midday-modal')">
   <div class="modal-box" onclick="event.stopPropagation()">
@@ -479,6 +498,19 @@
     justify-content: center;
   }
   .modal-close:hover { background: rgba(0,0,0,0.85); }
+ .comms-view-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rust);
+  padding-bottom: 0.1rem;
+  transition: opacity 0.2s;
+}
+.comms-view-link:hover { opacity: 0.7; }
 </style>
 
 <!-- Modal Script -->
